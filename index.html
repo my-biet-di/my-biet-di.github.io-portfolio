@@ -189,10 +189,10 @@
 
                     <div class="popup-video-item">
                         <div class="video-thumb-wrap">
-                            <img src="2x/vid 3.png" alt="Video 3">
+                            <img src="2x/tiktok.png" alt="Video 3">
                         </div>
-                        <h4>Animation Video</h4>
-                        <a href="https://youtube.com/your-video-link-3" target="_blank" class="popup-video-btn">Watch Video</a>
+                        <h4>TikTok</h4>
+                        <a href="https://www.tiktok.com/@reiujihon?is_from_webapp=1&sender_device=pc" target="_blank" class="popup-video-btn">To Profile</a>
                     </div>
             </div>
         </div>
@@ -382,7 +382,6 @@
         const workWrapper = document.querySelector('.work-wrapper');
         const workItems = gsap.utils.toArray('.work-item');
 
-        // 1. Hàm tính toán khoảng cách dịch chuyển (X) tối đa để hộp cuối cùng nằm CHÍNH GIỮA
         function getScrollAmount() {
             if (workItems.length === 0) return 0;
             
@@ -390,45 +389,37 @@
             const lastItemRect = lastItem.getBoundingClientRect();
             const wrapperRect = workWrapper.getBoundingClientRect();
             
-            // Tọa độ lề trái của hộp cuối cùng tính từ đầu wrapper
             const lastItemLeftInWrapper = lastItem.offsetLeft; 
             
-            // Khoảng cách cần dịch chuyển = Vị trí hộp cuối - (Một nửa màn hình - Một nửa hộp)
             const totalScroll = lastItemLeftInWrapper - (window.innerWidth / 2 - lastItemRect.width / 2);
             
             return totalScroll;
         }
 
-        // 2. Thiết lập trạng thái ban đầu: Đưa hộp ĐẦU TIÊN vào ngay chính giữa
         function initWorkPosition() {
             if (workItems.length === 0) return;
             const firstItemRect = workItems[0].getBoundingClientRect();
-            // Tính khoảng trống cần thiết ở lề trái để hộp 1 nằm giữa
             const initialOffset = (window.innerWidth / 2) - (firstItemRect.width / 2) - workWrapper.offsetLeft;
             
-            // Áp dụng khoảng trống này vào padding-left của wrapper một cách chủ động
             workWrapper.style.paddingLeft = `${initialOffset}px`;
         }
 
-        // Chạy khởi tạo vị trí ban đầu
         initWorkPosition();
         window.addEventListener('resize', initWorkPosition);
 
-        // 3. Kích hoạt hiệu ứng cuộn ngang chuẩn xác
         let scrollTween = gsap.to(workWrapper, {
-            x: () => -getScrollAmount(), // Chỉ dịch chuyển đúng khoảng cách đã tính ở bước 1
+            x: () => -getScrollAmount(),
             ease: "none", 
             scrollTrigger: {
                 trigger: ".work-section",
                 pin: true,        
                 scrub: 1,
                 start: "top top",
-                end: () => "+=" + getScrollAmount(), // Chiều dài cuộn dọc bằng đúng hành trình cuộn ngang
+                end: () => "+=" + getScrollAmount(), 
                 invalidateOnRefresh: true 
             }
         });
 
-        // 4. Xử lý hiệu ứng phóng to (Scale) và thay đổi Opacity khi hộp vào GIỮA MÀN HÌNH
         workItems.forEach((item) => {
             gsap.to(item.querySelector('.work-card-inner'), {
                 scale: 1, 
