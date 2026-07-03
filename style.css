@@ -1,0 +1,629 @@
+/*
+* Kevin Powell
+* https://youtu.be/cCAtD_BAHNw
+*/
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+* {
+margin: 0;
+padding: 0;
+font: inherit; /* Get rid of all font sizes and heights */
+box-sizing: border-box;
+}
+
+html {
+color-scheme: dark light; /* Default dark */
+hanging-punctuation: first last; /* Not supported in Chrome */
+}
+
+body {
+min-height: 100vh;
+background-color: #F9E8DD;
+overflow-x: hidden;
+}
+/*I chose green, pink, and cream as the main colors for this portfolio because I like these two colors and find them vibrant and also contrasting, helping to highlight the other.*/
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.oval {
+    position: relative;
+    width: 70vw;
+    height: 500px;
+    border-radius: 50%;
+    background-color: #85A073;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+.intext {
+    font-size: 5vw;
+    color: #FFDB4D;
+    -webkit-text-stroke: 1.5px white;
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+.name-box{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    position: absolute;
+    font-size: 8vw;
+    opacity: 0; /*Make sure the text doesn't show up right from the start.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center center;
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+.name span {
+    display: inline-block;
+}
+
+.name .my { 
+    color: #FF9000; 
+    font-weight: bold;
+    -webkit-text-stroke: 1.5px white;
+}
+
+.name .nguyen { 
+    color: #FF7694; 
+    font-weight: bold;
+    -webkit-text-stroke: 1.5px white;
+}
+
+/*I want to add a shaking animation to make it more interesting.*/
+.shaking {
+    animation: textShake 0.6s ease-in-out alternate infinite;
+}
+
+@keyframes textShake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(2px, -2px) rotate(0.6deg); }
+}
+
+.graphic {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    object-fit: contain; /*make sure the image fits within the specified dimensions without distortion*/
+    opacity: 0;
+    z-index: 2;
+}
+
+/*give the location for the graphic*/
+.g1 { top: 20%; left: 10%; }
+.g2 { top: 15%; right: 15%; }
+.g3 { bottom: 20%; left: 18%;}
+.g4 { bottom: 13%; right: 20%;}
+.g5 { top: 10%; left: 50%; transform: translateX(-50%); }
+.g6 { top: 55%; left: 5%; transform: translateY(-50%); }
+.g7 { top: 50%; right: 10%; transform: translateY(-50%); }
+
+.content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+.info-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 3.5vw;
+    color: #3E5D31;
+    font-weight: bold;
+    opacity: 0;
+    margin-bottom: 1rem;
+}
+
+.info-text.active {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    opacity: 1;
+}
+
+.image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.img-box{
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    max-width: 400px;
+    max-height: 300px;
+    opacity: 0;
+}
+
+.img1{
+    top: 10%;
+    left: 5%;
+    transform: translateY(40px);
+}
+
+.img2{
+    bottom: 12%;
+    right: 5%;
+    transform: translateY(50px);
+}
+
+.about {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9D6D0;
+    overflow: hidden;
+}
+
+.about-title {
+    position: absolute;
+    font-size: 15vw;
+    font-weight: bold;
+    color: #667F55;
+    z-index: 2;
+    text-align: center;
+    transform-origin: center top;
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+.about-card {
+    position: relative;
+    width: 50vw;
+    height: 70vh;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    z-index: 3;
+    transform: scale(0.8);
+}
+
+.card-body {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.profile-pic {
+    position: relative;
+    width: 370px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20%;
+}
+
+.hand{
+    position: absolute;
+    width: 700px;
+    height: auto;
+    z-index: 10;
+}
+
+.hleft {
+    bottom: 20%;
+    left: -1200px; /*to make sure the hand starts well outside the screen on the left side*/
+}
+
+.hright {
+    bottom: 15%;
+    right: -1200px;
+}
+
+.eye {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    z-index: 22;
+}
+
+.e-left {
+    top: 20%;
+    left: -700px; 
+}
+
+.e-right {
+    top: 25%;
+    right: -700px;
+}
+
+.bubble {
+    position: absolute;
+    top: 10%;
+    right: -320px;
+    width: 350px;
+    background: #B2BDAC;
+    border-radius: 20px;
+    padding: 12px;
+    text-align: center;
+    z-index: 20; 
+    opacity: 0;
+    transform-origin: right;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: 15%;
+    border-width: 10px 10px 0 10px;
+    border-style: solid;
+    border-color: #B2BDAC transparent transparent transparent;
+}
+
+.bubble2 {
+    position: absolute;
+    bottom: 20%;
+    left: -320px; 
+    width: 300px;
+    background: #B2BDAC;
+    border-radius: 20px;
+    padding: 12px;
+    text-align: center;
+    z-index: 20; 
+    opacity: 0;
+    transform-origin: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bubble2::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 15%;
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #B2BDAC;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    color: #3E5D31;
+    font-weight: bold;
+    padding: 15px;
+}
+
+/*I want to add some more graphic to make the space look less empty*/
+.agraphic{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    object-fit: contain; /*make sure the image fits within the specified dimensions without distortion*/
+    opacity: 0;
+}
+
+.agraphic1 { top: -350px; left: -420px;}
+.agraphic2 {top: 47%; left: -600px;}
+.agraphic3 {bottom: -450px; left: -300px;}
+.agraphic4 {bottom: -200px; right: -420px;}
+.agraphic5 {top: -250px; right: -480px;}
+
+.hardskill-bubble {
+    position: absolute;
+    top: 5%;
+    left: -360px;
+    width: 350px;
+    height: 505px;
+    background-color: #B2BDAC;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 30;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    opacity: 0;
+    transform: scale(0.7);
+    transform-origin: right center;
+}
+
+.hardskill-bubble::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 45%;
+    border-width: 12px 0 12px 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent #B2BDAC;
+}
+
+.soft-bubble {
+    position: absolute;
+    top: 15%;
+    right: -360px;
+    width: 350px;
+    background-color: #B2BDAC;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 30;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: block;
+    justify-content: center;
+    align-items: center;
+    
+    /* Trạng thái khóa ẩn ban đầu */
+    opacity: 0;
+    transform: scale(0.7);
+    transform-origin: left center;
+}
+
+.soft-bubble::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 45%;
+    border-width: 12px 0 12px 15px;
+    border-style: solid;
+    border-color: #B2BDAC transparent transparent transparent;
+}
+
+.skills-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    pointer-events: none;
+}
+
+.skill{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 30px;
+    object-fit: contain; /*make sure the image fits within the specified dimensions without distortion*/
+}
+
+.s1 { top: 50%; left: 20px; transform: rotate(-1deg); } /* Unity */
+.s2 { top: 20%; left: 20px; transform: rotate(8deg); } /* Premiere */
+.s3 { top: 18%; right: 20px; transform: rotate(-5deg); } /* Procreate */
+.s4 { top: 46%; right: 15px; transform: rotate(12deg); } /* Ibis Paint */
+.s5 { top: 78%; left: 25px; transform: rotate(-12deg); } /* Photoshop */
+.s6 { bottom: 8%; right: 25px; transform: rotate(6deg); } /*Maya*/
+
+.hard-title {
+    position: absolute;
+    top: 8%;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #3E5D31;
+}
+
+.soft-title {
+    font-size: 2rem;
+    top: 8%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #3E5D31;
+}
+
+.soft-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: bold;
+    color: #3E5D31;
+}
+
+.work-section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F9E8DD;
+    overflow: hidden;
+    display: block;
+    align-items: center;
+    padding-top: 6vh;
+}
+
+.work-header {
+    font-size: 5vw;
+    font-weight: bold;
+    color: #3E5D31;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+.work-wrapper {
+    display: flex;
+    align-items: center;
+    height: 85vh;
+    padding-left: calc(50vw - 300px);
+    padding-right: calc(50vw - 300px); /*make sure the last box is in the middle*/
+    gap: 90px; /*give the space between each artwork*/
+    will-change: transform;
+}
+
+/* create the artwork box, as well as to show what they are capable of doing.*/
+.work-item {
+    flex-shrink: 0;
+    width: 600px;
+    height: 550px;
+    perspective: 1000px;
+}
+
+.work-card-inner {
+    width: 100%;
+    height: 100%;
+    background: #B2BDAC;
+    border-radius: 35px;
+    padding: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: scale(0.85);
+    opacity: 0.3; /*slightly blur the boxes*/
+    transition: opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+/*to change the opacity of the box when entering the center*/
+.work-item.is-center .work-card-inner {
+    opacity: 1;
+    box-shadow: 0 25px 50px rgba(62, 93, 49, 0.2);
+}
+
+.work-img-container {
+    width: 100%;
+    height: 240px;
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.work-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.work-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #F9E1DD;
+}
+
+.work-desc {
+    font-size: 1.3rem;
+    color: #3E5D31;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+/*Create buttons to navigate project links.*/
+.work-btn {
+    align-self: flex-start;
+    padding: 10px 22px;
+    background-color: #FF9000;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(255, 144, 0, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.work-btn:hover {
+    transform: translateY(-2px);
+    background-color: #e07f00;
+}
+
+.contact-section {
+    width: 100vw;
+    height: 35vh;
+    background-color: #3E5D31;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact-title {
+    font-size: 4vw;
+    font-weight: bold;
+    color: #F9E8DD;
+    letter-spacing: 2px;
+    top: 10%;
+    text-align: left;
+    padding: 20px;
+    font-family: "Bubblegum Sans", sans-serif;
+}
+
+.contact{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+}
+
+.contact-text{
+    font-weight: bold;
+    color:#F9E8DD;
+    font-size: 1.3rem;
+}
+
+.contact-icon{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* Media responsive */
+img, picture,svg,video {
+display: block;
+max-width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+text-wrap: balance;
+}
+
+p {
+max-width: 75ch;
+text-wrap: pretty; /* Prevents orphans on lines */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+:has(:target) {
+scroll-behavior: smooth;
+scroll-padding-top: 1rem;
+}
+}

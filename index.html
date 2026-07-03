@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Nguyen's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Chelsea+Market&display=swap" rel="stylesheet">
+    <!--I want to use fonts from Google to better suit my title.-->
+
+</head>
+<body>
+    <section class="container" id="container">
+        <img src="2x/flower icon@2x.png" class="graphic g1">
+        <img src="2x/Asset 7@2x.png" class="graphic g2">
+        <img src="2x/Asset 8@2x.png" class="graphic g3">
+        <img src="2x/Asset 9@2x.png" class="graphic g4">
+        <img src="2x/quyt.png" class="graphic g5">
+        <img src="2x/tao.png" class="graphic g6">
+        <img src="2x/smile.png" class="graphic g7">
+
+        <div class="oval" id="oval">
+            <h1 class="intext" id="scroll">SCROLL TO START</h1>
+        </div>
+
+        <div class="name-box">
+            <div class="name" id="name">
+                <span class="my" id="myText">MY</span>
+                <span class="nguyen" id="nguyenText">NGUYEN</span>
+            </div>
+        </div>
+    </section>
+
+<!--I divided it into several sections to create the effect that you have to scroll through the previous section before you can view the next one.-->
+    <section class="content" id="content">
+        <div class="info">
+            <h1 class="info-text active"> Born to create, <br> Raised by deadlines</h1>
+            <h1 class="info-text"> Where creativity meets emotion</h1>
+        </div>
+
+        <div class="image">
+            <img src="2x/figma.jpeg" class="img-box img1">
+            <img src="2x/museum.jpeg" class="img-box img2">
+        </div>
+    </section>
+
+    <section class="about">
+        <h1 class="about-title">ABOUT ME</h1>
+
+        <div class="about-card">
+
+            <div class="card-body">
+                <div class="profile-pic">
+                    <img src="2x/avatar.JPG" alt="Profile Picture">
+                </div>
+
+                <div class="hand hleft"> <img src="2x/left-arm.png"></div>
+                <div class="hand hright"> <img src="2x/right-arm.png"></div>
+
+                <div class="eye e-left"> <img src="2x/left eye.png"></div>
+                <div class="eye e-right"> <img src="2x/right eye.png"></div>
+
+                <div class="bubble">
+                    <p class="about-text">My name is Thao My Nguyen and I'm currently a student at RMIT. To me, design is a magical world that allows me to explore on a unique journey of each aspect of it. I want to create a creative world where my design can become a <span style="background-color: #F9E1DD;">language of emotion.</span></p>
+                </div>
+
+                <div class="bubble2">
+                    <p class="about-text">My goal is to create fresh ideas and impactful designs. I'm seeking opportunities that allow me to learn, create, and make <span style="background-color: #F9E1DD;">meaningful designs.</span></p>
+                </div>
+
+                <div class="agraphic">
+                    <img src="2x/star.png" class="agraphic agraphic1">
+                    <img src="2x/heart.png" class="agraphic agraphic2">
+                    <img src="2x/star 2.png" class="agraphic agraphic3">
+                    <img src="2x/star 3.png" class="agraphic agraphic4">
+                    <img src="2x/paw.png" class="agraphic agraphic5">
+                </div>
+
+                <div class="hardskill-bubble">
+                    <h2 class="hard-title">HARD SKILLS</h2>
+
+                    <div class="skills-container">
+                        <div class="skill s1"><img src="2x/unity.png" alt="Unity"></div>
+                        <div class="skill s2"><img src="2x/premiere.png" alt="Premiere"></div>
+                        <div class="skill s3"><img src="2x/Procreate_icon.png" alt="Procreate"></div>
+                        <div class="skill s4"><img src="2x/ibis.webp" alt="Ibis Paint"></div>
+                        <div class="skill s5"><img src="2x/photoshop.png" alt="Photoshop"></div>                        
+                        <div class="skill s6"><img src="2x/maya.png" alt="Maya"></div>
+                    </div>
+                </div>
+
+                <div class="soft-bubble">
+                    <h2 class="soft-title">SOFT SKILLS</h2>
+                    <p class="soft-text">Team work & Communication 
+                        <br>Creative thinking
+                        <br>Time Management & Adaptability
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="work-section">
+        <h1 class="work-header">MY WORK</h1>
+    
+        <div class="work-wrapper">
+            <div class="work-item">
+                <div class="work-card-inner">
+                    <div class="work-img-container">
+                        <img src="2x/3d.jpeg" alt="Artwork 1">
+                    </div>
+                    <div class="work-details">
+                        <h3 class="work-title">3D Modelling</h3>
+                            <p class="work-desc">A model that combines reality and fantasy.</p>
+                        <a href="https://skfb.ly/pKMJG" target="_blank" class="work-btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-card-inner">
+                    <div class="work-img-container">
+                        <img src="2x/poster.jpeg" alt="Artwork 1">
+                    </div>
+                    <div class="work-details">
+                        <h3 class="work-title">Branding</h3>
+                            <p class="work-desc">This is a poster I designed for an event of a club of a university in Vietnam.</p>
+                        <div class="work-btn">View Project</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-card-inner">
+                    <div class="work-img-container">
+                        <img src="2x/standee.png" alt="Artwork 1">
+                    </div>
+                    <div class="work-details">
+                        <h3 class="work-title">Merchandise</h3>
+                            <p class="work-desc">I used to design and print my own products, transforming them from blueprints into physical products.</p>
+                        <div class="work-btn">View Project</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="contact-section">
+        <h2 class="contact-title">CONTACT ME</h2>
+            <div class="contact">
+            <div class="contact-icon"><img src="2x/gmail.png"></div>
+            <p class="contact-text">my.ngn1810@gmail.com</p>
+            </div>
+            
+            <div class="contact">
+            <div class="contact-icon"><img src="2x/insta.png"></div>
+            <p class="contact-text">my_biet_di</p>
+            </div>
+
+    </div>
+    </footer>
+
+    <script>
+        //When first accessing the site, I placed a large oval in the center of the screen along with text to remind viewers that scrolling is the primary action on this website.
+        gsap.registerPlugin(ScrollTrigger);
+
+        const oval = document.getElementById('oval');
+        const scrollText = document.getElementById('scroll');
+        const nameText = document.getElementById('name');
+
+        gsap.set("#myText", { rotation: -13, x: 36, y: -60 });
+        gsap.set("#nguyenText", { x: 15, y: 25 });
+
+        const introTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#container",    
+                start: "top top",        
+                end: "+=2000",           
+                scrub: 1,                
+                pin: true,   
+                pinSpacing: true,            
+                onUpdate: (self) => {
+                    if (self.progress > 0.6) {
+                        nameText.classList.add('shaking');
+                    } else {
+                        nameText.classList.remove('shaking');
+                    }
+                }
+            }
+        });
+
+        //The original text disappears and the artist's name along with the graphics appears.
+        introTimeline
+            .to(scrollText, { opacity: 0, scale: 0.8, duration: 0.3 })
+            .to(oval, { scale: 0.5, duration: 0.5 }, "-=0.2") 
+            .to(nameText, { opacity: 1, transformPerspective: 1000, force3D: true, duration: 0.5 }, "-=0.5") 
+            .to(".graphic", {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                stagger: 0.1,
+            })
+
+        //Here I want to include some short text about myself and a few images of my previous products. I've designed it so that when you scroll down, different information and images will appear.
+        const allTexts = gsap.utils.toArray(".info-text");
+        const contentTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".content",
+                start: "top top",
+                end: "+=3000",
+                scrub: 1,
+                pin: true,
+                pinSpacing: true,
+            }
+        });
+
+        contentTimeline
+            .to(".img1", { opacity: 1, y: 0, duration: 1 })
+            .fromTo(allTexts[0], 
+                { opacity: 0, y: -150 }, 
+                { opacity: 1, y: 0, duration: 0.2, ease: "power1.out" }, "-=1" 
+            )
+            
+            .to({}, { duration: 1.5 }) 
+
+            //The first text disappears, the second text appears from the bottom.
+            .to(allTexts[0], { opacity: 0, y: 50, duration: 0.8 })
+
+            .fromTo(allTexts[1],
+                { opacity: 0, y: 50 }, 
+                { opacity: 1, y: 0, duration: 1 }, "-=0.4"
+            )
+
+            .to(".img2", { opacity: 1, y: 0, duration: 1 }, "-=0.5")
+
+            .to({}, { duration: 1.5 });
+
+
+        //I want to create an effect where, when scrolling, arms appear from the outside, sticking their eyes onto my profile picture, and then popping back out to add interest and fun to this portfolio.
+        const aboutTimeline = gsap.timeline({
+            scrollTrigger: {
+            trigger: ".about",
+            start: "top top",
+            end: "+=4500",
+            scrub: 1,
+            pin: true,
+            pinSpacing: true
+        }
+        });
+
+        aboutTimeline 
+        .to(".about-title", { 
+            fontSize: "4.5vw", /* scale down the size of the title and put it on the top of the section */
+            top: "5%",
+            color: "#667F55",
+            duration: 1.5, 
+            ease: "power2.inOut" 
+    })
+    
+    // The picture will appear after the title is scaled down.
+        .to(".about-card", { opacity: 1, scale: 1, duration: 1 }, "-=1")
+
+    // I want to create an animation where an arm holds stickers (eyes, stars) and sticks them onto the profile picture to make it more interesting.
+        .to(".hleft", { left: "-250px", duration: 1.2, ease: "power2.out" }, "+=0.2")
+        .to(".e-left", { left: "140px", duration: 1.3, ease: "power2.out" }, "-=1.2")
+
+        .to(".hright", { right: "-270px", duration: 1.2, ease: "power2.out" }, "-=1.2")
+        .to(".e-right", { right: "120px", duration: 1.3, ease: "power2.out" }, "-=1.2")
+
+        .to({}, { duration: 0.5 })
+
+    // Leave the sticker on and pull your hand away.
+        .to(".hleft", { left: "-1200px", duration: 1 })
+        .to(".hright", { right: "-1200px", duration: 1 }, "-=1")
+
+    // I wanted each action to appear separately, not all at once, so I had the bubble appear after the sticker application action.
+        .to([".bubble", ".bubble2", ".agraphic"], { opacity: 1, scale: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.5)" })
+
+    // This allows viewers time to read the information and prevents them from scrolling too quickly.
+        .to({}, { duration: 3 })
+
+    // Initially, I planned to put the "my skill" section as a separate section, but then I reconsidered and combined it with the previous "about me" section. I added bubbles to place information inside, making it look like I was actually sharing that information, rather than just what's displayed on the website.
+        .to([".bubble", ".bubble2"], { 
+                opacity: 0, 
+                scale: 0.7, 
+                duration: 0.8, 
+                ease: "power2.in" 
+            })
+
+        // Change the phrase "about me" to "my skills".
+            .to(".about-title", {
+                opacity: 0,
+                y: -20,
+                duration: 0.4,
+                onComplete: () => {
+                    document.querySelector(".about-title").innerText = "MY SKILLS";
+                },
+                //To make sure that when you scroll back up, the words "my skill" change to "about me"
+                onReverseComplete: () => {
+                document.querySelector(".about-title").innerText = "ABOUT ME";
+            }
+            })
+            .to(".about-title", { 
+                opacity: 1, 
+                y: 0, 
+                color: "#4A6B3A", 
+                duration: 0.5 
+            })
+
+            // I previously made the two previous bubble texts disappear and caused two new bubble texts to appear.
+            .to([".hardskill-bubble", ".soft-bubble"], {
+                opacity: 1, scale: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
+            }, "-=0.2")
+
+            .fromTo(".skill", 
+                { opacity: 0, scale: 0 }, 
+                { opacity: 1, scale: 1, duration: 0.7, stagger: {
+                        each: 0.2,      
+                        from: "random"   
+                    },
+                    ease: "back.out(1.8)"
+                }, "-=0.3" 
+            )
+
+            .to({}, { duration: 3.5 });
+
+        //I want this section to have a horizontal scrolling effect in the "my work" section to add more interest and explore the possibilities of scrolling actions.
+        const workWrapper = document.querySelector('.work-wrapper');
+        const workItems = gsap.utils.toArray('.work-item');
+
+        //
+        let scrollTween = gsap.to(workWrapper, {
+            x: () => -(workWrapper.scrollWidth - window.innerWidth),
+            ease: "none", 
+            scrollTrigger:{
+            trigger: ".work-section",
+            pin: true,        //To make sure the page is pinned to the correct section before scrolling all the way down.
+            scrub: 1,
+            start: "top top",
+            end: () => "+=" + workWrapper.scrollWidth,
+            invalidateOnRefresh: true
+            }
+        });
+
+        //Scale up the box when it in the center.
+        workItems.forEach((item) => {
+        gsap.to(item.querySelector('.work-card-inner'), {
+            scale: 1, 
+            scrollTrigger: {
+                trigger: item,
+                containerAnimation: scrollTween,
+                start: "left 65%",
+                end: "right 35%",
+                scrub: true,
+                onToggle: self => {
+                    if(self.isActive) {
+                        item.classList.add('is-center');
+                    } else {
+                        item.classList.remove('is-center');
+                    }
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>
