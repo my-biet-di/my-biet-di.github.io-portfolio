@@ -462,17 +462,18 @@ overflow-x: hidden;
 
 .work-section{
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #F9E8DD;
     overflow: hidden;
-    display: block;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding-top: 6vh;
 }
 
 .work-header {
-    font-size: 5vw;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: bold;
     color: #3E5D31;
     margin-bottom: 2vh;
@@ -484,8 +485,8 @@ overflow-x: hidden;
     display: flex;
     align-items: center;
     height: 85vh;
-    padding-left: calc(50vw - 300px);
-    padding-right: calc(50vw - 300px); /*make sure the last box is in the middle*/
+    padding-left: 50vw;
+    padding-right: 10vw; /*make sure the last box is in the middle*/
     gap: 90px; /*give the space between each artwork*/
     will-change: transform;
 }
@@ -493,8 +494,8 @@ overflow-x: hidden;
 /* create the artwork box, as well as to show what they are capable of doing.*/
 .work-item {
     flex-shrink: 0;
-    width: 600px;
-    height: 550px;
+    width: 550px;
+    height: clamp(400px, 65vh, 600px);
     perspective: 1000px;
 }
 
@@ -503,7 +504,7 @@ overflow-x: hidden;
     height: 100%;
     background: #B2BDAC;
     border-radius: 35px;
-    padding: 24px;
+    padding: clamp(15px, 2.5vw, 24px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
@@ -521,11 +522,18 @@ overflow-x: hidden;
 
 .work-img-container {
     width: 100%;
-    height: 240px;
+    min-height: 0;
     flex: 1;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.work-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt và lấp đầy toàn bộ diện tích vùng chứa ảnh */
+    object-position: center;
 }
 
 .work-details {
@@ -535,13 +543,13 @@ overflow-x: hidden;
 }
 
 .work-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: bold;
     color: #F9E1DD;
 }
 
 .work-desc {
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 3vw, 1.3rem);
     color: #3E5D31;
     font-weight: bold;
     margin-bottom: 10px;
@@ -557,7 +565,7 @@ overflow-x: hidden;
     font-weight: bold;
     text-decoration: none;
     border-radius: 15px;
-    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 2vw, 1.3rem);
     box-shadow: 0 4px 10px rgba(255, 144, 0, 0.25);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
@@ -565,6 +573,148 @@ overflow-x: hidden;
 .work-btn:hover {
     transform: translateY(-2px);
     background-color: #e07f00;
+}
+
+.video-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75); 
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: clamp(20px, 4vw, 40px);
+}
+
+.video-popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.video-popup-content {
+    background-color: #B2BDAC;
+    width: 90%;
+    max-width: 900px;
+    max-height: 85vh; 
+    border-radius: 30px;
+    padding: 40px 30px 30px 30px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.video-popup-overlay.active .video-popup-content {
+    transform: scale(1);
+}
+
+.video-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #3E5D31;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease, transform 0.2s ease;
+    line-height: 1;
+    z-index: 10;
+}
+
+.video-popup-close:hover {
+    color: #FF9000;
+    transform: scale(1.1);
+}
+
+.popup-title {
+    font-family: "Bubblegum Sans", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #3E5D31;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.popup-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+.popup-video-item {
+    background-color: #F9E8DD;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.video-thumb-wrap {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popup-video-item h4 {
+    font-family: "Chelsea Market", sans-serif;
+    font-size: 1.2rem;
+    color: #3E5D31;
+    font-weight: bold;
+}
+
+.popup-video-btn {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 15px;
+    background-color: #FF9000;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    margin-top: auto;
+}
+
+.popup-video-btn:hover {
+    background-color: #e07f00;
+}
+
+@media (max-width: 768px) {
+    .video-popup-content {
+        padding: 30px 15px 20px 15px;
+        width: 95%;
+    }
+    .popup-title {
+        font-size: 2rem;
+    }
+    /* Sửa lỗi giao diện trượt ngang MY WORK bị lỗi tỷ lệ trên Mobile */
+    .work-item {
+        width: 85vw;
+        height: auto;
+        aspect-ratio: 4/5;
+    }
 }
 
 .contact-section {

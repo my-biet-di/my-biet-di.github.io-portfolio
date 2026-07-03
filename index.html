@@ -66,12 +66,14 @@
                 <div class="eye e-left"> <img src="2x/left eye.png"></div>
                 <div class="eye e-right"> <img src="2x/right eye.png"></div>
 
-                <div class="bubble">
-                    <p class="about-text">My name is Thao My Nguyen and I'm currently a student at RMIT. To me, design is a magical world that allows me to explore on a unique journey of each aspect of it. I want to create a creative world where my design can become a <span style="background-color: #F9E1DD;">language of emotion.</span></p>
-                </div>
+                <div class="about-content">
+                    <div class="bubble">
+                        <p class="about-text">My name is Thao My Nguyen and I'm currently a student at RMIT. To me, design is a magical world that allows me to explore on a unique journey of each aspect of it. I want to create a creative world where my design can become a <span style="background-color: #F9E1DD;">language of emotion.</span></p>
+                    </div>
 
-                <div class="bubble2">
-                    <p class="about-text">My goal is to create fresh ideas and impactful designs. I'm seeking opportunities that allow me to learn, create, and make <span style="background-color: #F9E1DD;">meaningful designs.</span></p>
+                    <div class="bubble2">
+                        <p class="about-text">My goal is to create fresh ideas and impactful designs. I'm seeking opportunities that allow me to learn, create, and make <span style="background-color: #F9E1DD;">meaningful designs.</span></p>
+                    </div>
                 </div>
 
                 <div class="agraphic">
@@ -149,7 +151,52 @@
                     </div>
                 </div>
             </div>
+
+            <div class="work-item">
+                <div class="work-card-inner">
+                    <div class="work-img-container">
+                        <img src="2x/video.jpeg" alt="Artwork 1">
+                    </div>
+                    <div class="work-details">
+                        <h3 class="work-title">Video Create</h3>
+                            <p class="work-desc">I edit videos for my class assignments and hobbies.</p>
+                        <div class="work-btn" id="open-video-popup" style="cursor: pointer;">View Project</div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="video-popup-overlay" id="videoPopup">
+            <div class="video-popup-content">
+                <button class="video-popup-close" id="closeVideoPopup">&times;</button>
+                <h2 class="popup-title">Video Create</h2>
+            
+                <div class="popup-video-grid">
+                    <div class="popup-video-item">
+                        <div class="video-thumb-wrap">
+                            <img src="2x/vid 1.png" alt="Video 1">
+                        </div>
+                        <h4>Project Video 01</h4>
+                        <a href="https://youtu.be/zvGxFdgkuEc?si=jNb5NuB_2TBd0eE3" target="_blank" class="popup-video-btn">Watch Video</a>
+                    </div>
+
+                    <div class="popup-video-item">
+                        <div class="video-thumb-wrap">
+                            <img src="2x/vid 2.jpeg" alt="Video 2">
+                        </div>
+                        <h4>Project Video 02</h4>
+                        <a href="https://youtube.com/shorts/toaDMIfrN1w?si=ElzVD2An0GxzOAsx" target="_blank" class="popup-video-btn">Watch Video</a>
+                    </div>
+
+                    <div class="popup-video-item">
+                        <div class="video-thumb-wrap">
+                            <img src="2x/vid 3.png" alt="Video 3">
+                        </div>
+                        <h4>Animation Video</h4>
+                        <a href="https://youtube.com/your-video-link-3" target="_blank" class="popup-video-btn">Watch Video</a>
+                    </div>
+            </div>
+        </div>
+    </div>
     </section>
 
     <footer class="contact-section">
@@ -335,40 +382,104 @@
         const workWrapper = document.querySelector('.work-wrapper');
         const workItems = gsap.utils.toArray('.work-item');
 
-        //
+        // 1. Hàm tính toán khoảng cách dịch chuyển (X) tối đa để hộp cuối cùng nằm CHÍNH GIỮA
+        function getScrollAmount() {
+            if (workItems.length === 0) return 0;
+            
+            const lastItem = workItems[workItems.length - 1];
+            const lastItemRect = lastItem.getBoundingClientRect();
+            const wrapperRect = workWrapper.getBoundingClientRect();
+            
+            // Tọa độ lề trái của hộp cuối cùng tính từ đầu wrapper
+            const lastItemLeftInWrapper = lastItem.offsetLeft; 
+            
+            // Khoảng cách cần dịch chuyển = Vị trí hộp cuối - (Một nửa màn hình - Một nửa hộp)
+            const totalScroll = lastItemLeftInWrapper - (window.innerWidth / 2 - lastItemRect.width / 2);
+            
+            return totalScroll;
+        }
+
+        // 2. Thiết lập trạng thái ban đầu: Đưa hộp ĐẦU TIÊN vào ngay chính giữa
+        function initWorkPosition() {
+            if (workItems.length === 0) return;
+            const firstItemRect = workItems[0].getBoundingClientRect();
+            // Tính khoảng trống cần thiết ở lề trái để hộp 1 nằm giữa
+            const initialOffset = (window.innerWidth / 2) - (firstItemRect.width / 2) - workWrapper.offsetLeft;
+            
+            // Áp dụng khoảng trống này vào padding-left của wrapper một cách chủ động
+            workWrapper.style.paddingLeft = `${initialOffset}px`;
+        }
+
+        // Chạy khởi tạo vị trí ban đầu
+        initWorkPosition();
+        window.addEventListener('resize', initWorkPosition);
+
+        // 3. Kích hoạt hiệu ứng cuộn ngang chuẩn xác
         let scrollTween = gsap.to(workWrapper, {
-            x: () => -(workWrapper.scrollWidth - window.innerWidth),
+            x: () => -getScrollAmount(), // Chỉ dịch chuyển đúng khoảng cách đã tính ở bước 1
             ease: "none", 
-            scrollTrigger:{
-            trigger: ".work-section",
-            pin: true,        //To make sure the page is pinned to the correct section before scrolling all the way down.
-            scrub: 1,
-            start: "top top",
-            end: () => "+=" + workWrapper.scrollWidth,
-            invalidateOnRefresh: true
+            scrollTrigger: {
+                trigger: ".work-section",
+                pin: true,        
+                scrub: 1,
+                start: "top top",
+                end: () => "+=" + getScrollAmount(), // Chiều dài cuộn dọc bằng đúng hành trình cuộn ngang
+                invalidateOnRefresh: true 
             }
         });
 
-        //Scale up the box when it in the center.
+        // 4. Xử lý hiệu ứng phóng to (Scale) và thay đổi Opacity khi hộp vào GIỮA MÀN HÌNH
         workItems.forEach((item) => {
-        gsap.to(item.querySelector('.work-card-inner'), {
-            scale: 1, 
-            scrollTrigger: {
-                trigger: item,
-                containerAnimation: scrollTween,
-                start: "left 65%",
-                end: "right 35%",
-                scrub: true,
-                onToggle: self => {
-                    if(self.isActive) {
-                        item.classList.add('is-center');
-                    } else {
-                        item.classList.remove('is-center');
+            gsap.to(item.querySelector('.work-card-inner'), {
+                scale: 1, 
+                scrollTrigger: {
+                    trigger: item,
+                    containerAnimation: scrollTween,
+                    // Thay đổi trigger point: Khi tâm của hộp chạm vào tâm màn hình
+                    start: "left 65%",
+                    end: "right 35%",
+                    scrub: true,
+                    onToggle: self => {
+                        if(self.isActive) {
+                            item.classList.add('is-center');
+                        } else {
+                            item.classList.remove('is-center');
+                        }
                     }
                 }
-            }
+            });
         });
-    });
+
+        // HỆ THỐNG ĐIỀU KHIỂN POP-UP VIDEO (Đã kiểm tra sửa lỗi bắt sự kiện click)
+        const videoPopup = document.getElementById('videoPopup');
+        const openPopupBtn = document.getElementById('open-video-popup');
+        const closePopupBtn = document.getElementById('closeVideoPopup');
+
+        if (openPopupBtn && videoPopup) {
+            openPopupBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                videoPopup.classList.add('active');
+                // Khóa thanh cuộn màn hình chính giúp trải nghiệm pop-up không bị nhảy vị trí cuộn ngang
+                document.body.style.overflow = 'hidden'; 
+            });
+        }
+
+        if (closePopupBtn) {
+            closePopupBtn.addEventListener('click', () => {
+                videoPopup.classList.remove('active');
+                document.body.style.overflow = ''; 
+            });
+        }
+
+        // Đóng Pop-up khi click ra ngoài vùng nội dung nền tối
+        if (videoPopup) {
+            videoPopup.addEventListener('click', (e) => {
+                if (e.target === videoPopup) {
+                    videoPopup.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
     </script>
 </body>
 </html>
