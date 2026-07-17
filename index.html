@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Chelsea+Market&display=swap" rel="stylesheet">
-    <!--I want to use fonts from Google to better suit my title.-->
 
 </head>
 <body>
@@ -37,16 +36,15 @@
         </div>
     </section>
 
-<!--I divided it into several sections to create the effect that you have to scroll through the previous section before you can view the next one.-->
     <section class="content" id="content">
         <div class="info">
-            <h1 class="info-text active"> Born to create, <br> Raised by deadlines</h1>
-            <h1 class="info-text"> Where creativity meets emotion</h1>
+            <h1 class="info-text active">Born to create, <br> Raised by deadline</h1>
+            <h1 class="info-text">Turning ideas into stories</h1>
         </div>
 
         <div class="image">
-            <img src="2x/figma.jpeg" class="img-box img1">
-            <img src="2x/museum.jpeg" class="img-box img2">
+            <img src="2x/laptop.png" class="img-box img1">
+            <img src="2x/camera.png" class="img-box img2">
         </div>
     </section>
 
@@ -68,11 +66,11 @@
 
                 <div class="about-content">
                     <div class="bubble">
-                        <p class="about-text">My name is Thao My Nguyen and I'm currently a student at RMIT. To me, design is a magical world that allows me to explore on a unique journey of each aspect of it. I want to create a creative world where my design can become a <span style="background-color: #F9E1DD;">language of emotion.</span></p>
+                        <p class="about-text">My name is Thao My Nguyen and I'm currently a Digital Media student at RMIT with an interest in design, social media and marketing communication. I enjoy turning ideas into something that other can see and feel it. I want to create a creative world where my design can become a <span style="background-color: #F9E1DD;">language of emotion.</span></p>
                     </div>
 
                     <div class="bubble2">
-                        <p class="about-text">My goal is to create fresh ideas and impactful designs. I'm seeking opportunities that allow me to learn, create, and make <span style="background-color: #F9E1DD;">meaningful designs.</span></p>
+                        <p class="about-text">Experienced in branding projects and short-form videos through university projects and personal practice. I'm drawn to work that has cultural, community impact and I'm seeking for opportunities that allow me to learn, create, and support creative communities.</span></p>
                     </div>
                 </div>
 
@@ -88,9 +86,9 @@
                     <h2 class="hard-title">HARD SKILLS</h2>
 
                     <div class="skills-container">
-                        <div class="skill s1"><img src="2x/unity.png" alt="Unity"></div>
+                        <div class="skill s1"><img src="2x/Capcut-icon.svg.png" alt="Capcut"></div>
                         <div class="skill s2"><img src="2x/premiere.png" alt="Premiere"></div>
-                        <div class="skill s3"><img src="2x/Procreate_icon.png" alt="Procreate"></div>
+                        <div class="skill s3"><img src="2x/canva-icon.png" alt="Canva"></div>
                         <div class="skill s4"><img src="2x/ibis.webp" alt="Ibis Paint"></div>
                         <div class="skill s5"><img src="2x/photoshop.png" alt="Photoshop"></div>                        
                         <div class="skill s6"><img src="2x/maya.png" alt="Maya"></div>
@@ -99,7 +97,7 @@
 
                 <div class="soft-bubble">
                     <h2 class="soft-title">SOFT SKILLS</h2>
-                    <p class="soft-text">Team work & Communication 
+                    <p class="soft-text">Team work & Communication through university projects and volunteering event in highschool
                         <br>Creative thinking
                         <br>Time Management & Adaptability
                     </p>
@@ -132,9 +130,9 @@
                         <img src="2x/poster.jpeg" alt="Artwork 1">
                     </div>
                     <div class="work-details">
-                        <h3 class="work-title">Branding</h3>
-                            <p class="work-desc">This is a poster I designed for an event of a club of a university in Vietnam.</p>
-                        <div class="work-btn">View Project</div>
+                        <h3 class="work-title">Poster Branding</h3>
+                            <p class="work-desc">I design posters using Canva to try different styles and help with branding for several events.</p>
+                        <div class="work-btn" id="open-poster-popup" style="cursor: pointer;">View Project</div>
                     </div>
                 </div>
             </div>
@@ -159,12 +157,13 @@
                     </div>
                     <div class="work-details">
                         <h3 class="work-title">Video Create</h3>
-                            <p class="work-desc">I edit videos for my class assignments and hobbies.</p>
+                            <p class="work-desc">Edit short video for university projects and to learn about the effect of sound, timing to audience.</p>
                         <div class="work-btn" id="open-video-popup" style="cursor: pointer;">View Project</div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="video-popup-overlay" id="videoPopup">
             <div class="video-popup-content">
                 <button class="video-popup-close" id="closeVideoPopup">&times;</button>
@@ -194,8 +193,44 @@
                         <h4>TikTok</h4>
                         <a href="https://www.tiktok.com/@reiujihon?is_from_webapp=1&sender_device=pc" target="_blank" class="popup-video-btn">To Profile</a>
                     </div>
+                </div>
             </div>
         </div>
+
+        <div class="poster-popup-overlay" id="posterPopup">
+            <div class="poster-popup-content">
+                <button class="poster-popup-close" id="closePosterPopup">&times;</button>
+                <h2 class="popup-title">Poster</h2>
+            
+                <div class="popup-poster-grid">
+                    <div class="popup-poster-item">
+                        <div class="poster-thumb-wrap">
+                            <img src="2x/Bản sao của MOOD.png" alt="Video 1">
+                        </div>
+                        <h4>Poster 1</h4>
+                    </div>
+
+                    <div class="popup-poster-item">
+                        <div class="poster-thumb-wrap">
+                            <img src="2x/WOOZI.png" alt="Video 2">
+                        </div>
+                        <h4>Poster 2</h4>
+                    </div>
+
+                    <div class="popup-poster-item">
+                        <div class="poster-thumb-wrap">
+                            <img src="2x/WOOZI (1).png" alt="Video 3">
+                        </div>
+                        <h4>Poster 3</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-zoom-overlay" id="imageZoomPopup">
+            <button class="image-zoom-close" id="closeZoomPopup">&times;</button>
+            <img src="" alt="Zoomed Poster" class="zoomed-image" id="zoomedImage">
+        </div>  
     </div>
     </section>
 
@@ -215,7 +250,6 @@
     </footer>
 
     <script>
-        //When first accessing the site, I placed a large oval in the center of the screen along with text to remind viewers that scrolling is the primary action on this website.
         gsap.registerPlugin(ScrollTrigger);
 
         const oval = document.getElementById('oval');
@@ -243,7 +277,6 @@
             }
         });
 
-        //The original text disappears and the artist's name along with the graphics appears.
         introTimeline
             .to(scrollText, { opacity: 0, scale: 0.8, duration: 0.3 })
             .to(oval, { scale: 0.5, duration: 0.5 }, "-=0.2") 
@@ -255,7 +288,6 @@
                 stagger: 0.1,
             })
 
-        //Here I want to include some short text about myself and a few images of my previous products. I've designed it so that when you scroll down, different information and images will appear.
         const allTexts = gsap.utils.toArray(".info-text");
         const contentTimeline = gsap.timeline({
             scrollTrigger: {
@@ -277,7 +309,6 @@
             
             .to({}, { duration: 1.5 }) 
 
-            //The first text disappears, the second text appears from the bottom.
             .to(allTexts[0], { opacity: 0, y: 50, duration: 0.8 })
 
             .fromTo(allTexts[1],
@@ -289,8 +320,6 @@
 
             .to({}, { duration: 1.5 });
 
-
-        //I want to create an effect where, when scrolling, arms appear from the outside, sticking their eyes onto my profile picture, and then popping back out to add interest and fun to this portfolio.
         const aboutTimeline = gsap.timeline({
             scrollTrigger: {
             trigger: ".about",
@@ -311,10 +340,8 @@
             ease: "power2.inOut" 
     })
     
-    // The picture will appear after the title is scaled down.
         .to(".about-card", { opacity: 1, scale: 1, duration: 1 }, "-=1")
 
-    // I want to create an animation where an arm holds stickers (eyes, stars) and sticks them onto the profile picture to make it more interesting.
         .to(".hleft", { left: "-250px", duration: 1.2, ease: "power2.out" }, "+=0.2")
         .to(".e-left", { left: "140px", duration: 1.3, ease: "power2.out" }, "-=1.2")
 
@@ -323,17 +350,13 @@
 
         .to({}, { duration: 0.5 })
 
-    // Leave the sticker on and pull your hand away.
         .to(".hleft", { left: "-1200px", duration: 1 })
         .to(".hright", { right: "-1200px", duration: 1 }, "-=1")
 
-    // I wanted each action to appear separately, not all at once, so I had the bubble appear after the sticker application action.
         .to([".bubble", ".bubble2", ".agraphic"], { opacity: 1, scale: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.5)" })
 
-    // This allows viewers time to read the information and prevents them from scrolling too quickly.
         .to({}, { duration: 3 })
 
-    // Initially, I planned to put the "my skill" section as a separate section, but then I reconsidered and combined it with the previous "about me" section. I added bubbles to place information inside, making it look like I was actually sharing that information, rather than just what's displayed on the website.
         .to([".bubble", ".bubble2"], { 
                 opacity: 0, 
                 scale: 0.7, 
@@ -341,7 +364,6 @@
                 ease: "power2.in" 
             })
 
-        // Change the phrase "about me" to "my skills".
             .to(".about-title", {
                 opacity: 0,
                 y: -20,
@@ -378,7 +400,6 @@
 
             .to({}, { duration: 3.5 });
 
-        //I want this section to have a horizontal scrolling effect in the "my work" section to add more interest and explore the possibilities of scrolling actions.
         const workWrapper = document.querySelector('.work-wrapper');
         const workItems = gsap.utils.toArray('.work-item');
 
@@ -426,7 +447,6 @@
                 scrollTrigger: {
                     trigger: item,
                     containerAnimation: scrollTween,
-                    // Thay đổi trigger point: Khi tâm của hộp chạm vào tâm màn hình
                     start: "left 65%",
                     end: "right 35%",
                     scrub: true,
@@ -441,7 +461,6 @@
             });
         });
 
-        // HỆ THỐNG ĐIỀU KHIỂN POP-UP VIDEO (Đã kiểm tra sửa lỗi bắt sự kiện click)
         const videoPopup = document.getElementById('videoPopup');
         const openPopupBtn = document.getElementById('open-video-popup');
         const closePopupBtn = document.getElementById('closeVideoPopup');
@@ -450,7 +469,6 @@
             openPopupBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 videoPopup.classList.add('active');
-                // Khóa thanh cuộn màn hình chính giúp trải nghiệm pop-up không bị nhảy vị trí cuộn ngang
                 document.body.style.overflow = 'hidden'; 
             });
         }
@@ -462,7 +480,6 @@
             });
         }
 
-        // Đóng Pop-up khi click ra ngoài vùng nội dung nền tối
         if (videoPopup) {
             videoPopup.addEventListener('click', (e) => {
                 if (e.target === videoPopup) {
@@ -471,6 +488,67 @@
                 }
             });
         }
+
+        const posterPopup = document.getElementById('posterPopup');
+        const openPosterPopupBtn = document.getElementById('open-poster-popup');
+        const closePosterPopupBtn = document.getElementById('closePosterPopup');
+
+        if (openPosterPopupBtn && posterPopup) {
+            openPosterPopupBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                posterPopup.classList.add('active');
+                document.body.style.overflow = 'hidden'; 
+            });
+        }
+
+        if (closePosterPopupBtn) {
+            closePosterPopupBtn.addEventListener('click', () => {
+                posterPopup.classList.remove('active');
+                document.body.style.overflow = ''; 
+            });
+        }
+
+        if (posterPopup) {
+            posterPopup.addEventListener('click', (e) => {
+                if (e.target === posterPopup) {
+                    posterPopup.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        const imageZoomPopup = document.getElementById('imageZoomPopup');
+const zoomedImage = document.getElementById('zoomedImage');
+const closeZoomPopupBtn = document.getElementById('closeZoomPopup');
+
+// Dòng này sẽ tìm TẤT CẢ các ảnh nằm trong class .poster-thumb-wrap (cả 3 tấm luôn)
+const posterImages = document.querySelectorAll('.poster-thumb-wrap img');
+
+posterImages.forEach(img => {
+    img.style.cursor = 'pointer'; 
+    img.addEventListener('click', () => {
+        zoomedImage.src = img.src; // Bấm tấm nào lấy đúng hình tấm đó
+        imageZoomPopup.classList.add('active');
+    });
+});
+
+// Bấm nút close (X) để tắt ảnh phóng to
+if (closeZoomPopupBtn) {
+    closeZoomPopupBtn.addEventListener('click', () => {
+        imageZoomPopup.classList.remove('active');
+        zoomedImage.src = ""; 
+    });
+}
+
+// Bấm ra vùng nền đen bên ngoài để tắt ảnh phóng to
+if (imageZoomPopup) {
+    imageZoomPopup.addEventListener('click', (e) => {
+        if (e.target === imageZoomPopup) {
+            imageZoomPopup.classList.remove('active');
+            zoomedImage.src = "";
+        }
+    });
+}
     </script>
 </body>
 </html>
