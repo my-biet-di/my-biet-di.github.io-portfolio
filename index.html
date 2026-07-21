@@ -25,15 +25,13 @@
         <img src="2x/smile.png" class="graphic g7">
 
         <div class="oval" id="oval">
-            <h1 class="intext" id="scroll">SCROLL TO START</h1>
-        </div>
-
-        <div class="name-box">
-            <div class="name" id="name">
+            <div class="intext shaking" id="scroll">
                 <span class="my" id="myText">MY</span>
                 <span class="nguyen" id="nguyenText">NGUYEN</span>
             </div>
         </div>
+
+            <h1 class="name" id="name">Scroll to get <br>to know me</h1>
     </section>
 
     <section class="content" id="content">
@@ -97,9 +95,10 @@
 
                 <div class="soft-bubble">
                     <h2 class="soft-title">SOFT SKILLS</h2>
-                    <p class="soft-text">Team work & Communication through university projects and volunteering event in highschool
-                        <br>Creative thinking
-                        <br>Time Management & Adaptability
+                    <p class="soft-text">&star;Team work & Communication
+                        <br>&star;Creative thinking
+                        <br>&star;Time Management & Adaptability
+                        <br>&star;Using AI tools to support work
                     </p>
                 </div>
                 
@@ -231,22 +230,20 @@
             <button class="image-zoom-close" id="closeZoomPopup">&times;</button>
             <img src="" alt="Zoomed Poster" class="zoomed-image" id="zoomedImage">
         </div>  
-    </div>
     </section>
 
     <footer class="contact-section">
         <h2 class="contact-title">CONTACT ME</h2>
-            <div class="contact">
+
+        <div class="contact">
             <div class="contact-icon"><img src="2x/gmail.png"></div>
             <p class="contact-text">my.ngn1810@gmail.com</p>
-            </div>
+        </div>
             
-            <div class="contact">
+        <div class="contact">
             <div class="contact-icon"><img src="2x/insta.png"></div>
             <p class="contact-text">my_biet_di</p>
-            </div>
-
-    </div>
+        </div>
     </footer>
 
     <script>
@@ -256,9 +253,6 @@
         const scrollText = document.getElementById('scroll');
         const nameText = document.getElementById('name');
 
-        gsap.set("#myText", { rotation: -13, x: 36, y: -60 });
-        gsap.set("#nguyenText", { x: 15, y: 25 });
-
         const introTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: "#container",    
@@ -267,13 +261,6 @@
                 scrub: 1,                
                 pin: true,   
                 pinSpacing: true,            
-                onUpdate: (self) => {
-                    if (self.progress > 0.6) {
-                        nameText.classList.add('shaking');
-                    } else {
-                        nameText.classList.remove('shaking');
-                    }
-                }
             }
         });
 

@@ -49,12 +49,17 @@ overflow-x: hidden;
 }  
 
 .intext {
-    font-size: 5vw;
-    color: #FFDB4D;
+    position: absolute;
+    font-size: 11vw;
     -webkit-text-stroke: 1.5px white;
     font-family: "Bubblegum Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/*
 .name-box{
     position: fixed;
     top:0;
@@ -64,12 +69,15 @@ overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}*/
 
 .name {
     position: absolute;
-    font-size: 8vw;
+    font-size: 4.5vw;
     opacity: 0; /*Make sure the text doesn't show up right from the start.*/
+    color: #FFDB4D;
+    -webkit-text-stroke: 1px white;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,16 +89,19 @@ overflow-x: hidden;
     display: inline-block;
 }
 
-.name .my { 
+.intext .my { 
+    font-size: 13vw;
     color: #FF9000; 
     font-weight: bold;
     -webkit-text-stroke: 1.5px white;
+    transform: rotate(-13deg) translate(-200px, -20px);
 }
 
-.name .nguyen { 
+.intext .nguyen { 
     color: #FF7694; 
     font-weight: bold;
     -webkit-text-stroke: 1.5px white;
+    transform: rotate(2deg) translate(50px, 15px);
 }
 
 /*I want to add a shaking animation to make it more interesting.*/
@@ -939,4 +950,224 @@ text-wrap: pretty; /* Prevents orphans on lines */
 scroll-behavior: smooth;
 scroll-padding-top: 1rem;
 }
+}
+
+@media (max-width: 768px) {
+
+    /* - INTRO - */
+    .container {
+        height: 100svh;
+    }
+    .oval {
+        width: 88vw;
+        height: 220px;
+    }
+    .intext {
+        font-size: 13vw;
+    }
+
+    .intext .my { 
+    font-size: 15vw;
+    color: #FF9000; 
+    font-weight: bold;
+    -webkit-text-stroke: 1.5px white;
+    transform: rotate(-13deg) translate(-100px, -20px);
+}
+
+.intext .nguyen { 
+    color: #FF7694; 
+    font-weight: bold;
+    -webkit-text-stroke: 1.5px white;
+    transform: rotate(2deg) translate(30px, 10px);
+}
+
+    .graphic {
+        width: 60px;
+        height: 60px;
+    }
+    .name {
+        font-size: 8vw;
+        gap: 4px;
+        flex-wrap: wrap;
+        text-align: center;
+        padding: 0 4vw;
+    }
+
+    /* - TAGLINE SECTION - */
+    .content {
+        height: auto;
+        min-height: 100svh;
+        flex-direction: column;
+        padding: 14vh 6vw;
+        gap: 2.5rem;
+    }
+    .info {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+    .info-text {
+        position: static;
+        font-size: 7.5vw;
+        opacity: 1;
+        margin-bottom: 0;
+    }
+    .image {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+    .img-box {
+        position: static;
+        opacity: 1;
+        width: 38vw;
+        height: 38vw;
+        transform: none;
+    }
+
+    /* -ABOUT - */
+    .about {
+        height: auto;
+        min-height: 100svh;
+        padding: 12vh 6vw 8vh;
+        overflow: visible;
+    }
+    .about-title {
+        position: static;
+        font-size: 13vw;
+        margin-bottom: 2rem;
+    }
+    .about-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        opacity: 1;
+        transform: none;
+        gap: 1.75rem;
+    }
+    .card-body {
+        flex-direction: column;
+        gap: 1.75rem;
+        overflow: visible;
+    }
+    .profile-pic {
+        width: 55vw;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+    .hand, .eye, .agraphic {
+        display: none;
+    }
+    .bubble, .bubble2 {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        opacity: 1;
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .bubble::after, .bubble2::after {
+        display: none;
+    }
+    .about-text {
+        font-size: 4vw;
+        padding: 10px;
+    }
+    .hardskill-bubble, .soft-bubble {
+        position: static;
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        transform: none;
+        display: block;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .hardskill-bubble::after, .soft-bubble::after {
+        display: none;
+    }
+    .hard-title, .soft-title {
+        position: static;
+        font-size: 5.5vw;
+        margin-bottom: 12px;
+    }
+    .skills-container {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        pointer-events: auto;
+    }
+    .skill {
+        position: static;
+        width: 56px;
+        height: 56px;
+        transform: none !important;
+    }
+    .soft-text {
+        font-size: 4vw;
+    }
+
+    .work-section {
+        height: auto;
+        padding: 8vh 0;
+    }
+    .work-header {
+        font-size: 9vw;
+    }
+    .work-wrapper {
+        height: auto;
+        padding: 0 8vw !important;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .work-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    .work-item {
+        width: 80vw;
+        height: auto;
+        scroll-snap-align: center;
+    }
+    .work-card-inner {
+        opacity: 1;
+        transform: none;
+        aspect-ratio: 3 / 4;
+    }
+    .work-title {
+        font-size: 8vw;
+    }
+    .work-desc {
+        font-size: 3.8vw;
+    }
+    .work-btn {
+        font-size: 4vw;
+    }
+
+    .contact-section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 6vh 6vw;
+    }
+    .contact-title {
+        font-size: 9vw;
+        padding: 0 0 1rem;
+        text-align: center;
+    }
+    .contact {
+        justify-content: center;
+        padding: 8px;
+    }
+    .contact-text {
+        font-size: 4.2vw;
+    }
 }
