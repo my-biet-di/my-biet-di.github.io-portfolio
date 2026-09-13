@@ -828,6 +828,148 @@ overflow-x: hidden;
 .popup-poster-btn:hover {
     background-color: #e07f00;
 }
+.campaign-popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    overflow-y: auto;
+}
+.campaign-popup-overlay.active { display: block; }
+
+.campaign-popup-content {
+    max-width: 1000px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+}
+
+.campaign-hero img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.popup-campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 4/5;
+}
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s ease;
+}
+.carousel-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+.carousel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+}
+.dot.active { background: #fff; }
+
+.popup-subtitle {
+    text-align: center;
+    color: #888;
+    margin-top: -8px;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+}
+
+.campaign-section {
+    margin-bottom: 40px;
+}
+.campaign-section:last-child {
+    margin-bottom: 0;
+}
+
+.campaign-section-title {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #667F55;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+/* Brand assets */
+.brand-assets-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* logo nhỏ hơn, banner rộng hơn */
+    gap: 20px;
+    align-items: start;
+}
+
+.brand-asset-item {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.logo-item img {
+    max-width: 255px;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.banner-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.asset-label {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Nếu màn hình nhỏ, xếp logo/banner chồng lên nhau thay vì 2 cột */
+@media (max-width: 700px) {
+    .brand-assets-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 @media (max-width: 768px) {
     .video-popup-content {
