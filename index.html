@@ -247,7 +247,6 @@
             <h2 class="popup-title">OMN — Event Campaign</h2>
             <p class="popup-subtitle" style="margin: auto">Brand assets & 12 posts for Instagram / Facebook</p>
 
-        <!-- ===== SECTION 1: BRAND ASSETS ===== -->
             <div class="campaign-section">
                 <h3 class="campaign-section-title">Brand Assets</h3>
                 <div class="brand-assets-grid">
@@ -262,7 +261,6 @@
                 </div>
             </div>
 
-        <!-- ===== SECTION 2: POSTS ===== -->
             <div class="campaign-section">
                 <h3 class="campaign-section-title">Posts</h3>
             <div class="popup-campaign-grid">
@@ -375,8 +373,6 @@
                     <h4 class="popup-campaign-title">Giới thiệu</h4>
                 </div>
 
-                <!-- lặp popup-campaign-item cho các post còn lại -->
-
             </div>
         </div>
 
@@ -447,7 +443,7 @@
  
         aboutTimeline 
         .to(".about-title", { 
-            fontSize: "4.5vw", /* scale down the size of the title and put it on the top of the section */
+            fontSize: "4.5vw",
             top: "5%",
             color: "#667F55",
             duration: 1.5, 
@@ -485,7 +481,6 @@
                 onComplete: () => {
                     document.querySelector(".about-title").innerText = "MY SKILLS";
                 },
-                //To make sure that when you scroll back up, the words "my skill" change to "about me"
                 onReverseComplete: () => {
                 document.querySelector(".about-title").innerText = "ABOUT ME";
             }
@@ -497,7 +492,6 @@
                 duration: 0.5 
             })
  
-            // I previously made the two previous bubble texts disappear and caused two new bubble texts to appear.
             .to([".hardskill-bubble", ".soft-bubble"], {
                 opacity: 1, scale: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
             }, "-=0.2")
@@ -542,8 +536,6 @@
         initWorkPosition();
         window.addEventListener('resize', initWorkPosition);
  
-        // Sau khi TẤT CẢ ảnh trong work-wrapper load xong, tính lại vị trí
-        // và refresh ScrollTrigger để tránh lệch card ban đầu (do thêm item mới)
         const workImages = workWrapper.querySelectorAll('img');
         let loadedCount = 0;
  
@@ -692,7 +684,6 @@
             });
         }
  
-        // Mini-carousel cho các post nhiều ảnh
         document.querySelectorAll('.carousel').forEach(carousel => {
             const track = carousel.querySelector('.carousel-track');
             const images = track.querySelectorAll('img');
@@ -709,7 +700,6 @@
             carousel.querySelector('.prev')?.addEventListener('click', () => goTo(index - 1));
         });
  
-        // Dòng này sẽ tìm TẤT CẢ các ảnh nằm trong class .poster-thumb-wrap (cả 3 tấm luôn)
         const posterImages = document.querySelectorAll('.poster-thumb-wrap img');
  
         posterImages.forEach(img => {
@@ -720,7 +710,6 @@
             });
         });
  
-        // Bấm nút close (X) để tắt ảnh phóng to
         if (closeZoomPopupBtn) {
             closeZoomPopupBtn.addEventListener('click', () => {
                 imageZoomPopup.classList.remove('active');
@@ -728,7 +717,6 @@
             });
         }
  
-        // Bấm ra vùng nền đen bên ngoài để tắt ảnh phóng to
         if (imageZoomPopup) {
             imageZoomPopup.addEventListener('click', (e) => {
                 if (e.target === imageZoomPopup) {
