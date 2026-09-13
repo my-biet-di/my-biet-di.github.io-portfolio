@@ -554,7 +554,7 @@ overflow-x: hidden;
 }
 
 .work-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: bold;
     color: #F9E1DD;
 }
@@ -841,10 +841,45 @@ overflow-x: hidden;
 .campaign-popup-content {
     max-width: 1000px;
     margin: 60px auto;
-    background: #fff;
+    background: #B2BDAC;
     border-radius: 16px;
     padding: 40px;
     position: relative;
+}
+
+.campaign-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #3E5D31;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease, transform 0.2s ease;
+    line-height: 1;
+    z-index: 10;
+}
+
+.brand-asset-item.logo-item {
+    background-color: #F9E8DD;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.brand-asset-item.banner-item {
+    background-color: #F9E8DD;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .campaign-hero img {
@@ -907,10 +942,11 @@ overflow-x: hidden;
 
 .popup-subtitle {
     text-align: center;
-    color: #888;
-    margin-top: -8px;
+    color: #3E5D31;
+    margin-top: 5px;
     margin-bottom: 24px;
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .campaign-section {
@@ -928,6 +964,14 @@ overflow-x: hidden;
     border-bottom: 1px solid #eee;
     padding-bottom: 8px;
     margin-bottom: 16px;
+    text-align: center;
+}
+
+.popup-campaign-title {
+    font-size: 1.2rem;
+    color: #3E5D31;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
 /* Brand assets */
@@ -950,6 +994,7 @@ overflow-x: hidden;
     width: 100%;
     height: auto;
     border-radius: 6px;
+    align-self: center;
 }
 
 .banner-item img {
